@@ -3,65 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VitalVibe KL | Run & Track</title>
+    <title>VitalVibe KL | Ultra Pro</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <div class="glass-nav">
-        <div class="logo">VITAL<span>VIBE</span></div>
-        <div class="user-badge">KL Runner #241</div>
-    </div>
 
-    <main class="content">
-        <section class="welcome">
-            <h2>Selamat Pagi, Intan! 👋</h2>
-            <p>Ready for your Sunday morning run at Dataran DBKL?</p>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="profile-section">
+                <div class="avatar">IA</div>
+                <div>
+                    <p class="greeting">Morning, Intan! 👋</p>
+                    <p class="location"><i data-lucide="map-pin"></i> Kuala Lumpur, MY</p>
+                </div>
+            </div>
+            <div class="weather-pill">
+                <i data-lucide="cloud-rain"></i> 28°C
+            </div>
+        </header>
+
+        <section class="goal-card">
+            <div class="goal-header">
+                <h3>Weekly Goal</h3>
+                <span>75%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+            <p class="goal-desc">Only <strong>5.6km</strong> left to smash your goal!</p>
         </section>
 
-        <div class="stats-container">
-            <div class="stat-card">
-                <i data-lucide="zap"></i>
-                <span class="val">12.4km</span>
-                <span class="label">Weekly Distance</span>
+        <div class="stats-grid">
+            <div class="mini-card highlight" onclick="toggleRun()">
+                <i data-lucide="play-circle"></i>
+                <span>Start Run</span>
             </div>
-            <div class="stat-card active">
-                <i data-lucide="map-pin"></i>
-                <span class="val">KL Car Free</span>
-                <span class="label">Next Goal</span>
+            <div class="mini-card">
+                <i data-lucide="timer"></i>
+                <span class="val">42m</span>
+                <span class="lab">Avg Pace</span>
             </div>
-            <div class="stat-card">
-                <i data-lucide="flame"></i>
-                <span class="val">5 Day</span>
-                <span class="label">Streak</span>
+            <div class="mini-card">
+                <i data-lucide="users"></i>
+                <span class="val">#12</span>
+                <span class="lab">KL Rank</span>
             </div>
         </div>
 
-        <section class="planner">
-            <h3>Weekend Run Planner 📍</h3>
-            <div class="event-list">
-                <div class="event-card">
-                    <div class="date">SUN 04 MAY</div>
-                    <div class="details">
-                        <h4>KL Car Free Morning</h4>
-                        <p>Dataran DBKL (7AM - 9AM)</p>
-                        <span class="tag">Viral Spot</span>
-                    </div>
-                    <button class="join-btn">I'm Going</button>
+        <section class="hotspots">
+            <div class="section-title">
+                <h3>Weekend Hotspots</h3>
+                <a href="#">View All</a>
+            </div>
+            
+            <div class="scroll-row">
+                <div class="spot-card car-free">
+                    <span class="badge">Sunday</span>
+                    <h4>KL Car Free Morning</h4>
+                    <p>Dataran DBKL • 7:00 AM</p>
+                    <button class="action-btn" onclick="joinEvent(this)">Join 2.4k others</button>
                 </div>
-                
-                <div class="event-card">
-                    <div class="date">SAT 10 MAY</div>
-                    <div class="details">
-                        <h4>Taman Saujana Hijau</h4>
-                        <p>Putrajaya (Europe Vibes)</p>
-                        <span class="tag">Scenic</span>
-                    </div>
-                    <button class="join-btn secondary">Remind Me</button>
+
+                <div class="spot-card saujana">
+                    <span class="badge">Saturday</span>
+                    <h4>Saujana Hijau</h4>
+                    <p>Putrajaya • 6:30 AM</p>
+                    <button class="action-btn" onclick="joinEvent(this)">Join 800 others</button>
                 </div>
             </div>
         </section>
-    </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item active"><i data-lucide="home"></i></div>
+            <div class="nav-item"><i data-lucide="map"></i></div>
+            <div class="nav-item add-btn"><i data-lucide="plus"></i></div>
+            <div class="nav-item"><i data-lucide="trophy"></i></div>
+            <div class="nav-item"><i data-lucide="settings"></i></div>
+        </nav>
+    </div>
 
     <script src="script.js"></script>
     <script>lucide.createIcons();</script>
