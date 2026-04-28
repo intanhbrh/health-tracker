@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalVibe | Health Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1>VitalVibe</h1>
+        <div id="date-display"></div>
+    </nav>
+
+    <main class="container">
+        <section class="stats-grid">
+            <div class="card">
+                <h3>Steps</h3>
+                <p class="value" id="steps">8,432</p>
+                <p class="goal">Goal: 10,000</p>
+            </div>
+            <div class="card">
+                <h3>Water Intake</h3>
+                <p class="value"><span id="water">1.5</span>L</p>
+                <button onclick="addWater()">+ Add 250ml</button>
+            </div>
+            <div class="card">
+                <h3>Sleep</h3>
+                <p class="value">7h 20m</p>
+                <p class="status">Quality: Good</p>
+            </div>
+        </section>
+
+        <section class="log-section">
+            <h2>Log Daily Mood</h2>
+            <div class="mood-btns">
+                <button onclick="logMood('😊')">😊 Happy</button>
+                <button onclick="logMood('😐')">😐 Neutral</button>
+                <button onclick="logMood('😔')">😔 Tired</button>
+            </div>
+            <ul id="mood-history"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
