@@ -3,86 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VitalVibe KL | Ultra Pro</title>
+    <title>VitalVibe KL | Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-    <div class="app-container">
-        <header class="main-header">
-            <div class="profile-section">
-                <div class="avatar">IA</div>
-                <div>
-                    <p class="greeting">Morning, Intan! 👋</p>
-                    <p class="location"><i data-lucide="map-pin"></i> Kuala Lumpur, MY</p>
-                </div>
-            </div>
-            <div class="weather-pill">
-                <i data-lucide="cloud-rain"></i> 28°C
-            </div>
-        </header>
-
-        <section class="goal-card">
-            <div class="goal-header">
-                <h3>Weekly Goal</h3>
-                <span>75%</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 75%;"></div>
-            </div>
-            <p class="goal-desc">Only <strong>5.6km</strong> left to smash your goal!</p>
-        </section>
-
-        <div class="stats-grid">
-            <div class="mini-card highlight" onclick="toggleRun()">
-                <i data-lucide="play-circle"></i>
-                <span>Start Run</span>
-            </div>
-            <div class="mini-card">
-                <i data-lucide="timer"></i>
-                <span class="val">42m</span>
-                <span class="lab">Avg Pace</span>
-            </div>
-            <div class="mini-card">
-                <i data-lucide="users"></i>
-                <span class="val">#12</span>
-                <span class="lab">KL Rank</span>
-            </div>
+    <nav class="side-nav">
+        <div class="logo">V<span>V</span></div>
+        <div class="nav-links">
+            <button class="nav-btn active" onclick="showPage('home', this)"><i data-lucide="layout-grid"></i> <span>Home</span></button>
+            <button class="nav-btn" onclick="showPage('map', this)"><i data-lucide="map"></i> <span>Run Routes</span></button>
+            <button class="nav-btn" onclick="showPage('rank', this)"><i data-lucide="trophy"></i> <span>Leaderboard</span></button>
+            <button class="nav-btn" onclick="showPage('settings', this)"><i data-lucide="settings"></i> <span>Profile</span></button>
         </div>
+    </nav>
 
-        <section class="hotspots">
-            <div class="section-title">
-                <h3>Weekend Hotspots</h3>
-                <a href="#">View All</a>
-            </div>
-            
-            <div class="scroll-row">
-                <div class="spot-card car-free">
-                    <span class="badge">Sunday</span>
-                    <h4>KL Car Free Morning</h4>
-                    <p>Dataran DBKL • 7:00 AM</p>
-                    <button class="action-btn" onclick="joinEvent(this)">Join 2.4k others</button>
+    <main class="app-viewport">
+        <section id="home" class="page active">
+            <header class="page-header">
+                <h2>Selamat Pagi, Intan!</h2>
+                <div class="weather-box"><i data-lucide="sun"></i> 31°C KL</div>
+            </header>
+
+            <div class="stats-row">
+                <div class="card stat">
+                    <h4>Steps</h4>
+                    <p>8,432</p>
+                    <small>Goal: 10k</small>
                 </div>
+                <div class="card stat">
+                    <h4>Distance</h4>
+                    <p>5.2km</p>
+                    <small>This week</small>
+                </div>
+                <div class="card stat highlight" onclick="startRun()">
+                    <i data-lucide="play" id="run-icon"></i>
+                    <p id="run-text">Start Run</p>
+                </div>
+            </div>
 
-                <div class="spot-card saujana">
-                    <span class="badge">Saturday</span>
-                    <h4>Saujana Hijau</h4>
-                    <p>Putrajaya • 6:30 AM</p>
-                    <button class="action-btn" onclick="joinEvent(this)">Join 800 others</button>
+            <div class="hotspots">
+                <h3>KL Sunday Morning 📍</h3>
+                <div class="spot-banner" onclick="showPage('map')">
+                    <h4>Dataran DBKL Car-Free</h4>
+                    <p>Every Sunday 7AM - 9AM</p>
+                    <button class="btn-sml">View Route</button>
                 </div>
             </div>
         </section>
 
-        <nav class="bottom-nav">
-            <div class="nav-item active"><i data-lucide="home"></i></div>
-            <div class="nav-item"><i data-lucide="map"></i></div>
-            <div class="nav-item add-btn"><i data-lucide="plus"></i></div>
-            <div class="nav-item"><i data-lucide="trophy"></i></div>
-            <div class="nav-item"><i data-lucide="settings"></i></div>
-        </nav>
-    </div>
+        <section id="map" class="page">
+            <h3>Running Routes KL</h3>
+            <div class="card route-card">
+                <div class="route-img">🗺️ (Map Preview)</div>
+                <h4>Perdana Botanical Garden</h4>
+                <p>3.5km Loop • Level: Easy</p>
+                <button class="btn-sml">Start Navigation</button>
+            </div>
+            <div class="card route-card">
+                <div class="route-img">🗺️ (Map Preview)</div>
+                <h4>Bukit Kiara Trail</h4>
+                <p>5.0km • Level: Advanced</p>
+                <button class="btn-sml">Start Navigation</button>
+            </div>
+        </section>
+
+        <section id="rank" class="page">
+            <h3>KL Leaderboard</h3>
+            <div class="leaderboard-list">
+                <div class="rank-item"><span>1</span> <strong>Ahmad R.</strong> <small>42km this week</small></div>
+                <div class="rank-item"><span>2</span> <strong>Sarah M.</strong> <small>38km this week</small></div>
+                <div class="rank-item current"><span>12</span> <strong>You (Intan)</strong> <small>5.2km this week</small></div>
+            </div>
+        </section>
+
+        <section id="settings" class="page">
+            <h3>Profile Settings</h3>
+            <div class="card">
+                <p><strong>Name:</strong> Intan</p>
+                <p><strong>Internship:</strong> HELP University</p>
+                <button class="btn-sml" style="background: #ff4444;" onclick="alert('Logged out!')">Logout</button>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
     <script>lucide.createIcons();</script>
